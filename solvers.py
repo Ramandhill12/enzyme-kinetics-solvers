@@ -14,3 +14,11 @@ def solve(f, y0, t_end, n_steps, step, *args):
     for i in range(n_steps):
         y[i + 1] = step(f, t[i], y[i], h, *args)
     return t, y
+
+def rk4_step(f, t, y, h, *args):
+    """One classical fourth-order Runge-Kutta step."""
+    k1 = f(t, y, *args)
+    k2 = f(t + h / 2, y + h / 2 * k1, *args)
+    k3 = f(t + h / 2, y + h / 2 * k2, *args)
+    k4 = f(t + h, y + h * k3, *args)
+    return y + h / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
