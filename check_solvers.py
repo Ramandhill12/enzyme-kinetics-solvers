@@ -27,4 +27,3 @@ substrate_total = s + c + p
 
 print("Largest drift in E + C:    ", np.max(np.abs(enzyme_total - Y0[1])))
 print("Largest drift in S + C + P:", np.max(np.abs(substrate_total - Y0[0])))
-python check_solvers.py
